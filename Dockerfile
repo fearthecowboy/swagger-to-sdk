@@ -26,7 +26,7 @@ RUN add-apt-repository ppa:jonathonf/python-3.6 && \
 RUN curl -sL https://bootstrap.pypa.io/get-pip.py | python3.6
 
 # Autorest
-RUN npm install -g autorest
+RUN npm install -g autorest@next
 RUN autorest --reset
 
 # Python packages
