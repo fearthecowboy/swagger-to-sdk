@@ -6,8 +6,8 @@ MAINTAINER lmazuel
 
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
 
-# Basic Ubuntu packages
-RUN apt-get update && apt-get install -y curl git software-properties-common locales
+# Basic Ubuntu packages (libunwind for .NET)
+RUN apt-get update && apt-get install -y curl git software-properties-common locales libunwind8
 
 # NodeJS
 RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - && \
@@ -20,9 +20,6 @@ RUN add-apt-repository ppa:jonathonf/python-3.6 && \
 
 # Install pip for Python 3.6
 RUN curl -sL https://bootstrap.pypa.io/get-pip.py | python3.6
-
-# Dotnet 2.0.0 needed dependencies
-RUN apt-get install libunwind8
 
 # Autorest
 RUN npm install -g autorest@next
