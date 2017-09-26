@@ -21,8 +21,11 @@ RUN add-apt-repository ppa:jonathonf/python-3.6 && \
 # Install pip for Python 3.6
 RUN curl -sL https://bootstrap.pypa.io/get-pip.py | python3.6
 
+# Dotnet 2.0.0 needed dependencies
+RUN apt-get install libunwind8
+
 # Autorest
-RUN npm install -g autorest@preview
+RUN npm install -g autorest@next
 
 # Python packages
 COPY requirements.txt /tmp
