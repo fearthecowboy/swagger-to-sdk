@@ -42,11 +42,14 @@ def build_file_content(autorest_version):
 
 
 def autorest_latest_version_finder():
-    return subprocess.check_output("autorest --version --json").decode().strip()
+    autorest_bin = shutil.which("autorest")
+    cmd_line = "{} --version --json".format(autorest_bin)
+    return subprocess.check_output(cmd_line.split()).decode().strip()
 
 def autorest_bootstrap_version_finder():
     try:
-        return json.loads(subprocess.check_output("npm --json ls autorest -g").decode().strip())
+        cmd_line = "npm --json ls autorest -g".split()
+        return json.loads(subprocess.check_output(cmd_line).decode().strip())
     except Exception:
         return {}
 
