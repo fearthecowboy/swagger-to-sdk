@@ -23,6 +23,7 @@ RUN curl -sL https://bootstrap.pypa.io/get-pip.py | python3.6
 
 # Autorest
 # pre-load dotnet framework runtime to slim down runtime effort
+mkdir -p  ~/.net/2.0.0 
 RUN npm install -g dotnet-2.0.0 
  
 # Autorest 
